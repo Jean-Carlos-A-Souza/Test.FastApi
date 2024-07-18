@@ -19,7 +19,7 @@ usuarios = {
 }
 
 @app.get("/todos")
-def home():
+def todos_sorteios():
   return (sorteios)
 
 @app.get("/sorteio/{id_sorteio}")
@@ -31,3 +31,8 @@ def busca_sorteio(id_sorteio: int):
 @app.get("/usuarios")
 def home_user():
   return (usuarios)
+
+
+@app.get("/")
+def home():
+  return ('Bem Vindo ao teste')
