@@ -3,13 +3,13 @@ from fastapi import FastAPI, HTTPException
 app = FastAPI()
 
 sorteios = {
-    1: {"id": 1, "item": "Tracker Premier", "preco":125.000, "cor": "Azul", "ano": 2022, "marca":"Chevrolet", "descricao":"Carro novo na cor azul com interna na cor bege com abamento em plastico, mais com algumas firulas interesantes, motor 1.2 turbo, anda bem e confiavel." },
-    2: {"id": 2, "item": "Nova Ranger", "preco":250.000, "cor": "Prata", "ano": 2024, "marca":"Ford", "descricao":"Carro novo na cor prata com interna na cor bege com abamento em plastico, mais com algumas firulas interesantes, motor 2.0 turbo diesel, forte e confiavel." },
-    3: {"id": 3, "item": "Nova S10", "preco":225.000, "cor": "Branco", "ano": 2024, "marca":"Chevrolet", "descricao":"Carro novo na cor branco com interna na cor bege com abamento em plastico, mais com algumas firulas interesantes, motor 2.0 turbo diesel, forte e confiavel." },
-    4: {"id": 4, "item": "Onix Premier", "preco":125.000, "cor": "Branco", "ano": 2023, "marca":"Chevrolet", "descricao":"Carro semi-novo na cor branco com interna na cor bege com abamento em plastico, com acabamento razoavel, motor 1.0 turbo, economico e anda razoavelmente bem." },
-    5: {"id": 5, "item": "Nissan Sentra", "preco":95.000, "cor": "Preto", "ano": 2024, "marca":"Nissan","descricao":"Carro novo na cor preta com interna na cor branca com abamento em plastico, com bom acabamento, motor 1.6 turbo, economico e anda bem." },
-    6: {"id": 6, "item": "C4 Cactus", "preco":90.000, "cor": "Prata", "ano": 2022, "marca":"Citroen","descricao":"Carro semi-novo na cor prata com interna na cor preta com abamento em plastico, com bom acabamento, motor 1.6 turbo, economico e anda bem." },
-    7: {"id": 7, "item": "Dodge Ram", "preco":325.000, "cor": "Branco Perola", "ano": 2022, "marca":"RAM", "descricao":"Carro novo na cor branco perola com interna na cor laranja de couro sintetico, com acabamentos dos mais luxuosos, motor bruto que puxa tudo que tiver, carroceria grande." },
+    1: {"id": 1, "item": "Tracker Premier", "imageUrl":"https://www.amazon.com/photos/all/gallery/B8lw0fUARgegmcU2XnueDw?pageIndex=0","DataSorteio":"30/07/2024","DataCriacao":"23/07/2027","preco":125.000, "cor": "Azul", "ano": 2022, "marca":"Chevrolet", "descricao":"Carro novo na cor azul com interna na cor bege com abamento em plastico, mais com algumas firulas interesantes, motor 1.2 turbo, anda bem e confiavel." },
+    2: {"id": 2, "item": "Nova Ranger",  "imageUrl":"https://www.amazon.com/photos/all/gallery/B8lw0fUARgegmcU2XnueDw?pageIndex=0","DataSorteio":"15/08/2024","DataCriacao":"03/08/2027","preco":250.000, "cor": "Prata", "ano": 2024, "marca":"Ford", "descricao":"Carro novo na cor prata com interna na cor bege com abamento em plastico, mais com algumas firulas interesantes, motor 2.0 turbo diesel, forte e confiavel." },
+    3: {"id": 3, "item": "Nova S10", "imageUrl":"https://www.amazon.com/photos/all/gallery/B8lw0fUARgegmcU2XnueDw?pageIndex=0","DataSorteio":"30/08/2024","DataCriacao":"23/08/2027", "preco":225.000, "cor": "Branco", "ano": 2024, "marca":"Chevrolet", "descricao":"Carro novo na cor branco com interna na cor bege com abamento em plastico, mais com algumas firulas interesantes, motor 2.0 turbo diesel, forte e confiavel." },
+    4: {"id": 4, "item": "Onix Premier",  "imageUrl":"https://www.amazon.com/photos/all/gallery/B8lw0fUARgegmcU2XnueDw?pageIndex=0","DataSorteio":"10/09/2024","DataCriacao":"23/09/2027","preco":125.000, "cor": "Branco", "ano": 2023, "marca":"Chevrolet", "descricao":"Carro semi-novo na cor branco com interna na cor bege com abamento em plastico, com acabamento razoavel, motor 1.0 turbo, economico e anda razoavelmente bem." },
+    5: {"id": 5, "item": "Nissan Sentra",  "imageUrl":"https://www.amazon.com/photos/all/gallery/B8lw0fUARgegmcU2XnueDw?pageIndex=0","DataSorteio":"30/010/2024","DataCriacao":"05/10/2027", "preco":95.000, "cor": "Preto", "ano": 2024, "marca":"Nissan","descricao":"Carro novo na cor preta com interna na cor branca com abamento em plastico, com bom acabamento, motor 1.6 turbo, economico e anda bem." },
+    6: {"id": 6, "item": "C4 Cactus", "imageUrl":"https://www.amazon.com/photos/all/gallery/B8lw0fUARgegmcU2XnueDw?pageIndex=0","DataSorteio":"15/10/2024","DataCriacao":"01/10/2027", "preco":90.000, "cor": "Prata", "ano": 2022, "marca":"Citroen","descricao":"Carro semi-novo na cor prata com interna na cor preta com abamento em plastico, com bom acabamento, motor 1.6 turbo, economico e anda bem." },
+    7: {"id": 7, "item": "Dodge Ram",  "imageUrl":"https://www.amazon.com/photos/all/gallery/B8lw0fUARgegmcU2XnueDw?pageIndex=0","DataSorteio":"30/11/2024","DataCriacao":"10/11/2027","preco":325.000, "cor": "Branco Perola", "ano": 2022, "marca":"RAM", "descricao":"Carro novo na cor branco perola com interna na cor laranja de couro sintetico, com acabamentos dos mais luxuosos, motor bruto que puxa tudo que tiver, carroceria grande." },
 }
 
 usuarios = {
@@ -31,7 +31,6 @@ def busca_sorteio(id_sorteio: int):
 @app.get("/usuarios")
 def home_user():
   return (usuarios)
-
 
 @app.get("/")
 def home():
